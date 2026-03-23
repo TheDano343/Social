@@ -5,13 +5,13 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PublicacionSeeder extends Seeder
+class ComentarioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        \App\Models\Publicacion::factory(100)->create();
+        //
     }
 }

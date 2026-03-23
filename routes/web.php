@@ -1,20 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route; 
 
 Route::middleware(['auth'])->group(function()
 {
-
-    Route::get('/publicacion', function ()
-    {
-        return view('publicacion');
-    });
-
-    Route::get('/', function () 
-    {
-        return view('rol');
-    });
-
+    Route::livewire('/','pages::modulos.social.publicacion');
+    Route::livewire('/perfil','pages::modulos.social.perfil')->name('perfil');
 });
 
 Auth::routes();

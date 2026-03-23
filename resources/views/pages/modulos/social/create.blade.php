@@ -1,7 +1,7 @@
-<form wire:submit="store">
+<form wire:submit="store" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="">Nombre</label>
-        <input wire:model='Descripcion' type="text" class="form-control">
+        <label for="">Descripcion</label>
+        <textarea class="form-control" rows="4" wire:model='Descripcion'></textarea>
         @error('Descripcion')
         <span class="text-danger">{{$message}}</span>
         @enderror
