@@ -12,6 +12,6 @@ class PublicacionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\Publicacion::factory(100)->create();
     }
 }
