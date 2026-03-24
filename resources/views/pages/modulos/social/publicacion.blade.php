@@ -5,6 +5,7 @@ use Livewire\WithFileUploads;
 use App\Models\Publicacion;
 use App\Models\User;
 use Livewire\Attributes\Rule;
+use Illuminate\Support\Facades\Storage;
 
 new class extends Component
 {
@@ -13,7 +14,7 @@ new class extends Component
     #[Rule('required')]
     public $Descripcion;
 
-    #[Rule('image')]
+    #[Rule('required|image|max:1024')]
     public $Imagen;
 
     public $users_id;
@@ -28,7 +29,7 @@ new class extends Component
 
         Publicacion::create([
             'Descripcion' => $this->Descripcion,
-            'Imagen' => $this->Imagen->store('upload', 'public'),
+            'Imagen' => $this->Imagen ? $this->Imagen->store('upload', 'public') : null,
             'users_id' => auth()->id(),
         ]);
 
@@ -51,7 +52,7 @@ new class extends Component
 
         $publicacion->update([
             'Descripcion' => $this-> Descripcion,
-            'Imagen' => $this->Imagen->store('upload', 'public'),
+            // 'Imagen' => $this->Imagen->store('upload', 'public')
         ]);
 
         session()->flash('update','Post actualizado');

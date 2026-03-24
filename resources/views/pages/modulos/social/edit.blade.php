@@ -1,16 +1,9 @@
-    <form wire:submit="update">
+    <form wire:submit="update" enctype="multipart/form-data">
         <div class="form-group">
         <label for="">Descripcion</label>
         <textarea class="form-control" rows="4" wire:model='Descripcion'></textarea>
         @error('Descripcion')
         <span class="text-danger">{{$message}}</span>
-        @enderror
-
-       <label for="">Imagen</label>
-        <input wire:model='Imagen' type="file" class="form-control">
-        @error('Imagen')
-        <span class="text-danger">{{$message}}</span>
-        
         @enderror
         </div>
 

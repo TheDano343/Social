@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function()
 {
-    Route::livewire('/publicacion','pages::modulos.social.publicacion');
+    Route::livewire('/','pages::modulos.social.publicacion');
 });
 
 Auth::routes();

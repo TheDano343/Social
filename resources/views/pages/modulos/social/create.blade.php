@@ -1,4 +1,4 @@
-<form wire:submit="store">
+<form wire:submit="store" enctype="multipart/form-data">
     <div class="form-group">
         <label for="">Descripcion</label>
         <textarea class="form-control" rows="4" wire:model='Descripcion'></textarea>
