@@ -19,7 +19,7 @@ class PublicacionFactory extends Factory
         return [
             'Descripcion' => $this->faker->paragraph(),
             'Imagen' => fake()->randomElement(['public/upload/4lXbxDNIMT4odMR1v8D9RcueMCpB84KjBSwNkV5h.jpg']),
-            'users_id' => '1'
+            'users_id' => $this->faker->numberBetween(1, 3)
         ];
     }
 }
