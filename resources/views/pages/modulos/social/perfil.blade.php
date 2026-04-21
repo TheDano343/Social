@@ -83,14 +83,28 @@ new class extends Component
     public function render()
     {
         $this->usuarios = User::all();
-        $this->publicaciones = Publicacion::where('users_id', auth()->user()->id)->get();
-        return view('pages.modulos.social.publicacion');
+        $this->publicaciones = Publicacion::where('users_id', auth()
+        ->user()
+        ->id)
+        ->latest()
+        ->get();
+        
+        return view('pages.modulos.social.perfil');
     }
     
 };
 ?>
 
 <div class="container">
+
+    <div class="container-fluid p-0">
+        <livewire:portada/>
+    </div>
+
+    <div class="container-fluid p-0">
+        <livewire:perfil/>
+    </div>
+
     <div>
         <div id="mensaje-exito" class="container">
         @if(session()->has('success'))

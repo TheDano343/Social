@@ -91,14 +91,21 @@ new class extends Component
     public function render()
     {
         $this->usuarios = User::all();
-        $this->publicaciones = Publicacion::all();
+        $this->publicaciones = Publicacion::
+        latest()
+        ->get();
         return view('pages.modulos.social.publicacion');
     }
     
 };
 ?>
 
+
+
 <div class="container">
+
+    
+
     <div>
         <div id="mensaje-exito" class="container">
             @if(session()->has('success'))
