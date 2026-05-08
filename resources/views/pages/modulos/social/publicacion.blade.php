@@ -23,8 +23,15 @@ new class extends Component
 
     public $users_id;
     public $edit_mode=false;
-    public $publicaciones;
+    // public $publicaciones;
     public $publicacion_Id;
+
+    public $porPagina = 6;
+
+     public function loadMore()
+    {
+        $this->porPagina += 6; // Aumenta el límite
+    }
 
 
     public function store()
@@ -88,16 +95,20 @@ new class extends Component
         session()->flash('destroy','Post eliminado');
     }
 
+    public function visualizar(Publicacion $publicacion)
+    {
+        $publicacion = Publicacion::all(); 
+        return view('publicacion.edit', compact('publicacion'));
+    }
+
     public function render()
     {
-        $this->usuarios = User::all();
-        $this->publicaciones = Publicacion::
-        latest()
-        ->get();
-        return view('pages.modulos.social.publicacion');
+        return view('pages.modulos.social.publicacion', [
+            'publicaciones' =>  Publicacion::latest()->take($this->porPagina)->get(),
+        ]);
+
     }
-    
-};
+}
 ?>
 
 
@@ -180,6 +191,10 @@ new class extends Component
             </div>
 
             @endforeach
+        </div>
+
+        <div wire:intersect="loadMore" class="p-4 text-center">
+            <span wire:loading>Cargando Mas Publicaciones</span>
         </div>
 
     </div>
