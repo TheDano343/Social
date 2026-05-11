@@ -67,7 +67,7 @@ new class extends Component
 
         $publicacion->update([
             'Descripcion' => $this-> Descripcion,
-            // 'Imagen' => $this->Imagen->store('upload', 'public')
+            'Imagen' => $this->Imagen->store('upload', 'public')
         ]);
 
         session()->flash('update','Post actualizado');
