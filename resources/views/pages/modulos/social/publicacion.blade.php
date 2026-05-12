@@ -28,7 +28,7 @@ new class extends Component
 
     public $porPagina = 6;
 
-     public function loadMore()
+    public function loadMore()
     {
         $this->porPagina += 6; // Aumenta el límite
     }
@@ -106,7 +106,6 @@ new class extends Component
         return view('pages.modulos.social.publicacion', [
             'publicaciones' =>  Publicacion::latest()->take($this->porPagina)->get(),
         ]);
-
     }
 }
 ?>
@@ -191,6 +190,7 @@ new class extends Component
             </div>
 
             @endforeach
+            
         </div>
 
         <div wire:intersect="loadMore" class="p-4 text-center">

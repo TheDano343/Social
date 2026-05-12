@@ -7,6 +7,8 @@ Route::middleware(['auth'])->group(function()
 {
     Route::livewire('/','pages::modulos.social.publicacion');
     Route::livewire('/perfil','pages::modulos.social.perfil')->name('perfil');
+    Route::livewire('/fotosPortada','pages::modulos.galeria.portada');
+    Route::livewire('/fotosPerfil','pages::modulos.galeria.perfil');
 
     Route::resource('user', UserController::class);
 
