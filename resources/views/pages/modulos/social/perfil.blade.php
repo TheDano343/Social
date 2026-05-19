@@ -14,7 +14,7 @@ new class extends Component
     #[Rule('required')]
     public $Descripcion;
 
-    #[Rule('required|image|max:1024')]
+    #[Rule('nullable|image|max:1024')]
     public $Imagen;
 
     public $users_id;
@@ -57,7 +57,7 @@ new class extends Component
 
         $publicacion->update([
             'Descripcion' => $this-> Descripcion,
-            // 'Imagen' => $this->Imagen->store('upload', 'public')
+            'Imagen' => $this->Imagen ? $this->Imagen->store('upload', 'public') : null
         ]);
 
         session()->flash('update','Post actualizado');
@@ -166,9 +166,15 @@ new class extends Component
                             class="text-muted">{{$publicacion->created_at->diffForHumans(['locale'=>'es']) }}</small>
                     </p>
                 </div>
+
+                @if($publicacion->Imagen)
                 <div class="p-4">
-                <img src="{{asset('storage/'.$publicacion->Imagen)}}" class="card-img-bottom" alt="image">
+                    <img src="{{asset('storage/'.$publicacion->Imagen)}}" class="card-img-bottom" alt="image">
+                   
                 </div>
+                @else
+                @endif
+
             </div>
 
             @endforeach
