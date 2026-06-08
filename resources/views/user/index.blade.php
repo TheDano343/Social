@@ -43,7 +43,7 @@
             <div class="col-md-12">
                 <div class="card-header">
                     <h4>
-                        Refrigeración
+                        Usuarios
                         <a class="btn btn-primary float-end" href="{{url('user/create')}}">Agregar
                             usuario</a>
                     </h4>
