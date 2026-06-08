@@ -48,6 +48,9 @@ new class extends Component
 
 <div>
 
+    <label style="cursor:pointer;">
+
+    <div>
         @if($portadas)
         <img src="{{asset('storage/'.$portadas->Imagen)}}" class="img-fluid w-50 d-block mx-auto">
         @else
@@ -56,12 +59,15 @@ new class extends Component
         </p>
         @endif
         
-
-    @if($edit_mode)
+        @if($edit_mode)
         @include('components.portada.edit')
         @else
         @include('components.portada.create')
         @endif
+
+    </div>
+
+    </label>
 
     
 </div>

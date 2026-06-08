@@ -1,12 +1,14 @@
 <form wire:submit="store" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="">Portada</label>
-        <input wire:model='Imagen' type="file" class="form-control">
+        <label class="d-none">Portada</label>
+        <input wire:model='Imagen' type="file" class="form-control d-none">
         @error('Imagen')
         <span class="text-danger">{{$message}}</span>
         @enderror
     </div>
 
-    <button class="btn btn-success mt-3">Enviar</button>
+    <div class="d-flex justify-content-end">
+    <button class="btn btn-success mt-3 position-absolute">Enviar Foto de Portada</button>
+    </div>
 
 </form>

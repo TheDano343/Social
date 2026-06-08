@@ -49,9 +49,11 @@ new class extends Component
 ?>
 
 <div>
+    <label style="cursor:pointer;">
 
+        <div>
         @if($perfiles)
-        <img src="{{asset('storage/'.$perfiles->Imagen)}}" class="rounded-circle w-25">
+        <img src="{{asset('storage/'.$perfiles->Imagen)}}" class="rounded w-25 img-fluid">
         @else
         <p>
             No Hay imagen
@@ -63,6 +65,8 @@ new class extends Component
         @else
         @include('components.perfil.create')
         @endif
-
+    </div>
+    
+    </label>
     
 </div>
